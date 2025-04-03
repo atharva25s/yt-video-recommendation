@@ -7,9 +7,9 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar- text-white bg-[#323232] fixed left-[25%] top-[4%] py-[10px] w-[50vw] flex justify-between rounded-[8px] shadow-lg items-center bg--700 pl-[2vw] pr-[1vw] border-[1px] border-solid border-[#383838] z-[999]">
+      <div className="navbar- text-white bg-[#323232] fixed left-[25%] top-[4%] max-md:left-[5%] py-[10px] w-[50vw] max-md:w-[90%] flex justify-between rounded-[8px] shadow-lg items-center bg--700 pl-[2vw] pr-[1vw] border-[1px] border-solid border-[#383838] z-[999]">
         <Link to='/' className="text-[20px] font-semibold">Reco.</Link>
-        <div className="nav-mid h-full w-auto flex justify-center items-center gap-[40px] text-[14px] text-[#7d7d7d] ">
+        <div className="nav-mid max-md:hidden h-full w-auto flex justify-center items-center gap-[40px] text-[14px] text-[#7d7d7d] ">
         <Link>Home</Link>
         <Link>Features</Link>
         <Link>Pricing</Link>
