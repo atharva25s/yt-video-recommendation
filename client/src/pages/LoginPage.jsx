@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function LoginPage() {
   return (
     <>
-      <div className="login-container h-[100%] w-[100vw] flex justify-center items-center ">
-        <div className="login-form w-[30%] h-[70%] py-[40px] bg--500 flex flex-col justify-center items-center gap-[20px]  ">
-          <h1 className="text-[40px] font-bold ">Login</h1>
+      <div className="login-container h-[100%] w-[100vw] flex justify-center items-center  ">
+        <div className="login-form w-[30%] h-[70%] py-[40px] bg--500 flex flex-col justify-center items-center gap-[20px] border-white border-2 rounded-3xl ">
+          <h1 className="text-[40px] font-bold text-white ">Login</h1>
 
           <div className="input-section h-auto w-full flex flex-col justify-center items-center gap-[20px] ">
             <input
@@ -20,11 +20,11 @@ function LoginPage() {
               placeholder="Password"
             />
           </div>
-          <div className="options h-auto w-[60%] flex justify-between items-center text-[15px] text-zinc-600 ">
+          <div className="options h-auto w-[60%] flex justify-between items-center text-[15px] text-gray-200 ">
             <p>Not a user?</p>
             <Link
               to="/register"
-              className="hover:text-black hover:font-semibold transition-all"
+              className="hover:text-white hover:font-semibold transition-all"
             >
               Signin
             </Link>
@@ -32,7 +32,7 @@ function LoginPage() {
 
           <button
             // onClick={() => nav(`/${toPage}`)}
-            className="button-container rounded-[8px] bg-[#fff] w-[40%] px-[1.4vw] py-[1.2vh] text-black cursor-pointer hover:scale-[1.05] transition-all font-medium shadow-sm shadow-[#D4C7FF] "
+            className="button-container rounded-[8px] bg-[#fff] w-[40%] px-[1.4vw] py-[1.2vh] text-black cursor-pointer hover:scale-[1.05] transition-all font-medium  hover:bg-black hover:text-white border-[1px] hover:border-white"
           >
             Login
           </button>
