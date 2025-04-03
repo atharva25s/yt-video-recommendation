@@ -12,7 +12,7 @@ function LandingPage() {
           {/* <RiChatSmileAiFill size={40} color="#FF2400" /> */}
 
           <h1 className="text-[50px] font-bold ">
-            Youtube Video Recommendation
+            Learn How Your Video Is Performing
           </h1>
           <p className="text-zinc-500">
             Use this for good videos
