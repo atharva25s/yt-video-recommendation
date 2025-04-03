@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+numpy
+pydantic
+matplotlib
+seaborn
+pandas
+nltk
+scikit-learn
