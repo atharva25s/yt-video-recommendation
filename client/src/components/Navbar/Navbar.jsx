@@ -19,7 +19,7 @@ function Navbar() {
         <div className="nav-right w-auto h-full flex justify-center items-center">
           <div
             onClick={() => nav("/login")}
-            className="button-container bg-[#fff] rounded-[8px] px-[2vw] py-[1.2vh] text-black cursor-pointer hover:bg-transparent hover:border-[1px] border-solid border-[#fff] hover:text-[#fff]  transition-all text-[15px] font-medium "
+            className="button-container bg-[#fff] rounded-[8px] px-[2vw] py-[1.2vh] text-black cursor-pointer hover:bg-transparent border-[1px] border-solid border-[#fff] hover:text-[#fff]  transition-all text-[15px] font-medium "
           >
             Login
           </div>
