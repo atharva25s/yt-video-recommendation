@@ -5,7 +5,8 @@ import parse from "html-react-parser";
 
 function Dashboard() {
   const [link, setLink] = useState("");
-  const [comments, setComments] = useState("");
+  const [comments, setComments] = useState([]);
+  const [ans, setAns] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -14,15 +15,13 @@ function Dashboard() {
     setLoading(true);
     setError(null);
     try {
-      // const res = await axios.get("http://localhost:8080/api/comments", {
-      //   params: { url: link },
-      // });
-      const res = await axios.post("http://192.168.226.60:8080/api/comments", {
+      const res = await axios.post("http://192.168.151.22:8080/api/comments", {
         link: link,
       });
-      console.log("Response Data: ", res.data.ans[0]);
+      console.log("Response Data: ", res.data);
 
-      setComments(res.data.ans[0]);
+      setComments(res.data.comments);
+      setAns(res.data.ans[0]);
     } catch (err) {
       setError("Failed to fetch comments. Please try again.");
       console.error(err);
@@ -57,14 +56,33 @@ function Dashboard() {
           </button>
         </div>
 
-        <div className="comments h-auto text-white w-[70%] flex flex-col justify-center items-center bg-[#424242]">
+        <div className="comments text-white w-[70%] flex flex-col justify-center items-center -[#424242]">
           {comments.length > 0 && (
-            <div className="comments-container w-full p-4 bg-[#1e1e1e] rounded-md mt-4 overflow-y-auto max-h-[300px]">
+            <div className="comments-container w-full p-4 bg-[#2e2e2e] rounded-md mt-4 overflow-y-auto max-h-[300px]">
               <h2 className="text-lg font-semibold">Output:</h2>
-             
-              <p >
-                {parse(comments)}
-              </p>
+              <div className="content-container h-[200px] w-full flex justify-center items-center overflow-hidden ">
+                <p className="w-[40%] px-[2vw] h-full flex justify-center items-center ">
+                  {ans}
+                </p>
+
+                <div className="w-[60%] px-[2vw] h-full flex flex-col justify-start items-start ">
+                  <h2 className="text-lg font-semibold">Comments:</h2>
+
+                  <div className="comments-section h-auto flex flex-col justify-start items-start overflow-y-auto relative">
+                  <ul className="mt-2 text-sm">
+                    {Array.isArray(comments) &&
+                      comments.map((comment, index) => (
+                        <li
+                          key={index}
+                          className="mb-4 border-b border-gray-600 pb-2"
+                        >
+                          {parse(comment)}
+                        </li>
+                      ))}
+                  </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>

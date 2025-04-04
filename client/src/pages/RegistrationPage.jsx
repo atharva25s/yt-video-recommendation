@@ -1,47 +1,90 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function RegistrationPage() {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const navigate = useNavigate();
+
+  const handleRegister = async () => {
+    try {
+      const res = await axios.post("http://192.168.151.22:8080/api/register", formData);
+      console.log("Registration Success:", res.data);
+      alert("Registration Successful!");
+      navigate("/login");
+    } catch (err) {
+      console.error("Registration Error:", err.response?.data || err.message);
+      console.log(formData)
+    }
+  };
   return (
     <>
-
-<div className="reg-container h-[100vh] w-[100vw] flex justify-center items-center ">
-        <div className="reg-form w-[30%] h-[70%] py-[40px] bg--500 flex flex-col justify-center items-center gap-[20px]  ">
+      <div className="reg-container h-[100vh] w-[100vw] flex justify-center items-center ">
+        <div className="reg-form w-[30%] h-[70%] py-[40px] bg--500 flex flex-col justify-center items-center gap-[20px] text-white  ">
           <h1 className="text-[40px] font-bold ">Signup</h1>
 
           <div className="input-section h-auto w-full flex flex-col justify-center items-center gap-[20px] ">
-          <input
-              className="outline-none focus:transition-all focus:border-[#000] px-[2vw] py-[1.4vh] rounded-full border-[2px] border-solid border-zinc-200 "
+            <input
+              className="outline-none bg-[#242424] w-[80%] focus:transition-all focus:border-[#424242] px-[2vw] py-[1.4vh] rounded-[8px] border-[2px] border-solid border-zinc-800 "
               type="text"
               placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              // value={link}
+              name="username"
             />
             <input
-              className="outline-none focus:transition-all focus:border-[#000] px-[2vw] py-[1.4vh] rounded-full border-[2px] border-solid border-zinc-200 "
+              className="outline-none bg-[#242424] w-[80%] focus:transition-all focus:border-[#424242] px-[2vw] py-[1.4vh] rounded-[8px] border-[2px] border-solid border-zinc-800 "
               type="email"
               placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              name="email"
+
             />
             <input
-              className="outline-none focus:transition-all focus:border-[#000] px-[2vw] py-[1.4vh] rounded-full border-[2px] border-solid border-zinc-200 "
+              className="outline-none bg-[#242424] w-[80%] focus:transition-all focus:border-[#424242] px-[2vw] py-[1.4vh] rounded-[8px] border-[2px] border-solid border-zinc-800 "
               type="password"
               placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              name="password"
+
             />
           </div>
-          <div className="options h-auto w-[60%] flex justify-between items-center text-[15px] text-zinc-600 ">
+          <div className="options h-auto w-[80%] flex justify-between items-center text-[15px] text-zinc-400 ">
             <p>Already a user?</p>
-            <Link to='/login' className="hover:text-black hover:font-semibold transition-all" >Login</Link>
+            <Link
+              to="/login"
+              className="hover:text-white hover:font-semibold transition-all"
+            >
+              Login
+            </Link>
           </div>
 
           <button
-            // onClick={() => nav(`/${toPage}`)}
-            className="button-container rounded-full bg-[#fff] w-[40%] px-[1.4vw] py-[1.2vh] text-black cursor-pointer hover:scale-[1.05] transition-all font-medium shadow-lg shadow-[#D4C7FF] "
+            onClick={handleRegister}
+            className="button-container rounded-[8px] bg-[#fff] w-[40%] px-[1.4vw] py-[1.2vh] text-black cursor-pointer hover:scale-[1.05] transition-all font-medium  "
           >
             Register
           </button>
         </div>
       </div>
-    
     </>
-  )
+  );
 }
 
-export default RegistrationPage
+export default RegistrationPage;
