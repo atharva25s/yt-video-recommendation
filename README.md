@@ -1,6 +1,6 @@
 # BuzzSense
 
-## Help **Content Creators** gain insights about their content and sugessting them improvements based on comments.
+## Help **Content Creators** gain insights about their content and suggesting them improvements based on comments.
 
 # Overview
 ### BuzzSense is built with variety of TechStack
@@ -14,5 +14,5 @@
 - **Logistic Regression** algorithm along with [Youtube comments dataset](model\yt_data.csv) were used model training and building.
 
 ### It looks like this
-[!Architecture](client\src\assets\architecture.png)
+[!Architecture](\client\src\assets\architecture.png)
 
