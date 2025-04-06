@@ -11,8 +11,8 @@
 - NodeJS along with ExpressJS helped in getting the **CommentsThread** of that Youtube video using **YOUTUBE API** and sending it to the model.
 - Authorization and authentication of users was carried with MongoDB.
 - Model was deployed using FastAPI along with containerization with Docker, for environment Isolation.
-- **Logistic Regression** algorithm along with [Youtube comments dataset](model\yt_data.csv) were used model training and building.
+- **Logistic Regression** algorithm along with [Youtube comments dataset](model/yt_data.csv) were used model training and building.
 
 ### It looks like this
-![Architecture](\client\src\assets\architecture.png)
+![Architecture](/client/src/assets/architecture.png)
 
