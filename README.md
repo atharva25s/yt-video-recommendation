@@ -14,5 +14,5 @@
 - **Logistic Regression** algorithm along with [Youtube comments dataset](model\yt_data.csv) were used model training and building.
 
 ### It looks like this
-[!Architecture](\client\src\assets\architecture.png)
+![Architecture](\client\src\assets\architecture.png)
 
