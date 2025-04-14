@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Buttons/Button";
 import { Link as ScrollLink } from "react-scroll";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <>
       <div className="navbar- text-white bg-[#323232] fixed left-[25%] top-[4%] max-md:left-[5%] py-[10px] w-[50vw] max-md:w-[90%] flex justify-between rounded-[8px] shadow-lg items-center bg--700 pl-[2vw] pr-[1vw] border-[1px] border-solid border-[#383838] z-[999]">
-        <ScrollLink  to="home" smooth={true} duration={500}  className="text-[20px] font-semibold cursor-pointer">Reco.</ScrollLink>
+        <Link  to="/" smooth={true} duration={500}  className="text-[20px] font-semibold cursor-pointer">BuzzSence</Link>
         <div className="nav-mid h-full w-auto flex justify-center items-center gap-[40px] text-[14px] text-[#7d7d7d] ">
         <ScrollLink to="home" smooth={true} duration={500}  className='hover:text-gray-100 duration-200 cursor-pointer'>Home</ScrollLink >
         <ScrollLink to="features" smooth={true} duration={500}  className='hover:text-gray-100 duration-200 cursor-pointer'>Features</ScrollLink >
